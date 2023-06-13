@@ -14,9 +14,7 @@ on:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python
@@ -33,7 +31,7 @@ jobs:
         poetry build
         sha256sum dist/* > sha256sums.txt
     - name: Release
-      uses: softprops/action-gh-release@v1
+      uses: actions/upload-artifact@v3
       with:
         files: |
           dist/*
