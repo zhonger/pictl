@@ -32,7 +32,8 @@ jobs:
     - name: Build package
       run: |
         poetry build
-        sha256sum dist/* > sha256sums.txt
+        cp dist/* ./
+        sha256sum pictl-* > sha256sums.txt
     - name: Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
