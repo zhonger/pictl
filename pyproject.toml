@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "pictl"
+version = "0.1.0"
+description = "A command line tool for image processing and uploading (ex. S3-type)"
+authors = ["zhonger <zhonger@live.cn>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Pillow = "^9.3.0"
+rtoml = "^0.9.0"
+inquirer = "^3.1.3"
+rich = "^13.4.1"
+click = "^8.1.3"
+boto3 = "^1.26.146"
+
+[tool.poetry.group.dev.dependencies]
+poetry = "^1.5.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pictl = 'pictl.cli.main:cli'
