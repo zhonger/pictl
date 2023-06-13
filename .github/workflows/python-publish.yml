@@ -33,8 +33,8 @@ jobs:
     - name: Release
       uses: actions/upload-artifact@v3
       with:
-        files: |
-          dist/*
+        path: |
+          dist/
           sha256sums.txt
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
