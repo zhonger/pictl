@@ -57,7 +57,7 @@ pip3 install pictl
 
 ### Brew
 
-(**PS**: It will support in the next version.)
+(~~**PS**: It will support in the next version.~~ Now it's supported in MacOS. Linux is not available yet.)
 
 ```bash
 brew tap zhonger/pictl
