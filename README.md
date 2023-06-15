@@ -2,6 +2,17 @@
 
 A command line tool for Image Compression and Upload (ex. S3-type)
 
+![PyPI](https://img.shields.io/pypi/v/pictl)
+![GitHub](https://img.shields.io/github/license/zhonger/pictl)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/zhonger/pictl)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pictl)
+
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/zhonger/pictl)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/zhonger/pictl/python-publish.yml)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pictl)
+
+Engligh | [中文简体](https://lisz.me/tech/project/pictl.html)
+
 ## Why a new project
 
 When I publish blog articles, it's quite inefficient for me to prepare images.
