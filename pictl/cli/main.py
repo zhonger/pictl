@@ -47,20 +47,36 @@ def config():
 @config.command()
 def info():
     """Check the configs."""
-    rprint(Config().read())
+    try:
+        c = Config()
+        settings = c.read()
+        rprint(settings)
+    except FileNotFoundError:
+        rprint(f"{c.rc} doesn't exsit. Please check it.")
 
 
 @config.command()
 def add():
     """Add configs to the config file."""
-    Config().add()
+    try:
+        c = Config()
+        c.read()
+        c.add()
+    except FileNotFoundError:
+        c.init()
+        c.add()
 
 
 @config.command()
 @click.option("-g", "--group", help="The specified group name.")
 def delete(group: str = None):
     """Delete config group from the config file."""
-    Config().delete(group)
+    try:
+        c = Config()
+        c.read()
+        c.delete(group)
+    except FileNotFoundError:
+        rprint(f"{c.rc} doesn't exsit. Please check it.")
 
 
 @config.command()
@@ -86,12 +102,13 @@ def cup(filename: str, group: str):
 
 @click.command()
 @click.argument("filename")
-def compress(filename):
+@click.option("-o", "--output", help="The output filename.")
+def compress(filename, output: str = None):
     """Compress any image into `webp` image.
 
     FILENAME is the name of the file to compress.
     """
-    pcom(filename)
+    pcom(filename, output)
 
 
 @click.command()

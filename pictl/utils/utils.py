@@ -8,10 +8,15 @@ from pictl.config import Config
 
 
 def get_name(filename: str):
-    settings = Config().read()
-    ntype = settings["basic"].get("ntype", None)
-    length = settings["basic"].get("length", 8)
-    algorithm = settings["basic"].get("algorithm", "sha1")
+    try:
+        settings = Config().read()
+        ntype = settings["basic"].get("ntype", None)
+        length = settings["basic"].get("length", 6)
+        algorithm = settings["basic"].get("algorithm", "sha1")
+    except FileNotFoundError:
+        ntype = None
+        length = 6
+        algorithm = "sha1"
     if ntype == "random":
         name = get_random_name(length)
     elif ntype == "hash":
