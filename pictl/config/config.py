@@ -3,8 +3,8 @@
 from dataclasses import dataclass
 from pathlib import Path
 
+import tomlkit
 import inquirer
-import rtoml
 from rich import print as rprint
 
 
@@ -36,12 +36,12 @@ class Config:
 
     def read(self):
         with open(self.rc, "r", encoding="utf-8") as f:
-            settings = rtoml.loads(f.read())
+            settings = tomlkit.loads(f.read())
         return settings
 
     def write(self, config):
         with open(self.rc, "w+", encoding="utf-8") as f:
-            f.write(rtoml.dumps(config))
+            f.write(tomlkit.dumps(config))
 
     def init(self):
         if Path(self.rc).exists():

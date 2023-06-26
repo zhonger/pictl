@@ -1,5 +1,5 @@
 click
 pillow
-rtoml
 inquirer
 rich
+tomlkit
