@@ -72,7 +72,7 @@ class Config:
         types = [
             inquirer.List(
                 "type",
-                message="Type: ",
+                message="Type",
                 choices=["S3", "R2"],
             ),
         ]
@@ -90,7 +90,7 @@ class Config:
         regions = [
             inquirer.List(
                 "region",
-                message="Region: ",
+                message="Region",
                 choices=[
                     "us-east-1",
                     "us-east-2",
@@ -189,7 +189,7 @@ class Config:
             types = [
                 inquirer.List(
                     "group",
-                    message="Please select one group: ",
+                    message="Please select one group",
                     choices=groups,
                 ),
             ]
