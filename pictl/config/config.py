@@ -32,7 +32,6 @@ class Config:
     def __init__(self):
         self.rc = f"{Path.home()}/.pictlrc"
         self.settings = {}
-        # self.settings = self.read()
 
     def read(self):
         with open(self.rc, "r", encoding="utf-8") as f:
