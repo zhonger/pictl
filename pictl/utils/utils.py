@@ -1,6 +1,7 @@
 """Tools module"""
 
 import hashlib
+import mimetypes
 import random
 import string
 
@@ -40,3 +41,17 @@ def get_hash_name(filename: str, algorithm: str = "sha1", length: int = 8):
         value = hashlib.new(algorithm, f.read()).hexdigest()
         name = value[:length].upper()
     return name
+
+
+def get_content_type(filename: str):
+    mimetypes.types_map[".webp"]="image/webp"
+    if mimetypes.guess_type(filename)[0]:
+        return mimetypes.guess_type(filename)[0]
+    return "binary/octet-stream"
+
+
+def get_object_key(filename: str, prefix: str):
+    filename = filename.split("/")[-1]
+    if prefix:
+        return f"{prefix}/{filename}"
+    return f"{filename}"
