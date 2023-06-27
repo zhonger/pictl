@@ -81,6 +81,14 @@ brew install pictl
 
 The config file for PICTL is named `.pictlrc` with `toml` format. The config file is located at `~/.pictlrc`.
 
+Until now PICTL supports:
+
+| Name | `type` in config |
+| :--: | :--: |
+| Cloudflare R2 | `R2` |
+| AWS S3 | `S3` |
+| Tencent COS | `COS(Tencent)` |
+
 #### Manually
 
 ```bash
@@ -91,11 +99,12 @@ algorithm = "sha1"
 
 [blog]
 type = "S3"
-endpoint = "https://s3.amazonaws.com"
+endpoint = "https://s3.ap-northeast-1.amazonaws.com"
 bucket = "blog"
+region = "ap-northeast-1"
+prefix = "blog"
 key = "this-is-a-long-key-for-s3"
 secret = "this-is-a-long-secret-for-s3"
-prefix = "blog"
 url = "https://i.lisz.me"
 ```
 
