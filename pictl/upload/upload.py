@@ -4,6 +4,7 @@ import boto3
 from rich import print as rprint
 
 from pictl.config import Config
+from pictl.utils import get_content_type, get_object_key
 
 
 def upload(filename: str, group: str) -> None:
@@ -25,23 +26,29 @@ def upload(filename: str, group: str) -> None:
 
 
 def upload_s3(settings: dict, filename: str, group: str):
-    s3 = boto3.resource(
-        "s3",
-        endpoint_url=settings[group]["endpoint"],
-        aws_access_key_id=settings[group]["key"],
-        aws_secret_access_key=settings[group]["secret"],
-    )
+    resource = {
+        "endpoint_url": settings[group]["endpoint"],
+        "aws_access_key_id": settings[group]["key"],
+        "aws_secret_access_key": settings[group]["secret"],
+        "region_name": settings[group]["region"],
+    }
+    s3 = boto3.resource("s3", **resource)
     with open(filename, "rb") as data:
-        s3.Bucket(settings[group]["prefix"]).put_object(Key=filename, Body=data)
+        content_type = get_content_type(filename)
+        key = get_object_key(filename, settings[group]["prefix"])
+        s3.Bucket(settings[group]["bucket"]).put_object(
+            Key=key,
+            Body=data,
+            ContentType=content_type,
+        )
         get_link(settings, filename, group)
 
 
 def get_link(settings: dict, filename: str, group: str):
-    if settings[group]["prefix"] == "":
-        url = f'{settings[group]["url"]}/{filename}'
-    else:
-        url = f'{settings[group]["url"]}/{settings[group]["prefix"]}/{filename}'
-    rprint(
+    key = get_object_key(filename, settings[group]["prefix"])
+    url = f'{settings[group]["url"]}/{key}'
+    filename = filename.split("/")[-1]
+    print(
         f"Direct URL: {url}\n"
         f"Markdown: ![{filename}]({url})\n"
         f'HTML Code: <img src="{url}" alt="{filename}" />\n'
