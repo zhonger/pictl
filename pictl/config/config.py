@@ -75,7 +75,7 @@ class Config:
             inquirer.List(
                 "type",
                 message="Type",
-                choices=["S3", "R2", "COS(Tencent)"],
+                choices=["S3", "R2", "COS(Tencent)", "Oracle"],
             ),
         ]
         type_ = inquirer.prompt(types)["type"]
@@ -128,8 +128,15 @@ class Config:
             while account_id == "":
                 account_id = input("Account ID: ")
             endpoint = f"https://{account_id}.r2.cloudflarestorage.com"
-        elif type_ == "COS(Tencent)":
+        if type_ == "COS(Tencent)":
             endpoint = f"https://cos.{region}.myqcloud.com"
+        if type_ == "Oracle":
+            namespace = ""
+            while namespace == "":
+                namespace = input("Namespace: ")
+            endpoint = (
+                f"https://{namespace}.compat.objectstorage.{region}.oraclecloud.com"
+            )
         return endpoint
 
     def delete(self, group: str = None):
