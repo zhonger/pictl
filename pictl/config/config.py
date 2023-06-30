@@ -149,6 +149,8 @@ class Config:
             endpoint = f"https://{region}.digitaloceanspaces.com"
         if type_ == "Linode":
             endpoint = f"https://{region}.linodeobjects.com"
+        if type_ == "GCP":
+            endpoint = "https://storage.googleapis.com"
         return endpoint
 
     def delete(self, group: str = None):
