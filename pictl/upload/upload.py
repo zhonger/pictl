@@ -1,6 +1,7 @@
 """Upload module"""
 
 import boto3
+from botocore.config import Config as BConfig
 from rich import print as rprint
 
 from pictl.config import Config
@@ -32,6 +33,10 @@ def upload_s3(settings: dict, filename: str, group: str):
         "aws_secret_access_key": settings[group]["secret"],
         "region_name": settings[group]["region"],
     }
+    if settings[group]["type"] == "OSS(Aliyun)":
+        resource["config"] = BConfig(
+            s3={"addressing_style": "virtual", "signature_version": "s3v4"}
+        )
     s3 = boto3.resource("s3", **resource)
     with open(filename, "rb") as data:
         content_type = get_content_type(filename)
