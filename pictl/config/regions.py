@@ -207,4 +207,5 @@ regions = {
         "us-north-1",
         "ap-southeast-1",
     ],
+    "minio": ["us-east-1"],
 }

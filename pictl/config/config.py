@@ -153,6 +153,10 @@ class Config:
             endpoint = "https://storage.googleapis.com"
         if type_ == "Kodo(Qiniu)":
             endpoint = f"https://s3-{region}.qiniucs.com"
+        if type_ == "minio":
+            endpoint = ""
+            while endpoint == "":
+                endpoint = input("Endpoint: ")
         return endpoint
 
     def delete(self, group: str = None):
