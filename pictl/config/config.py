@@ -143,6 +143,8 @@ class Config:
             endpoint = f"https://s3.{region}.backblazeb2.com"
         if type_ == "OBS(Huawei)":
             endpoint = f"https://obs.{region}.myhuaweicloud.com"
+        if type_ == "Vultr":
+            endpoint = f"https://{region}.vultrobjects.com"
         return endpoint
 
     def delete(self, group: str = None):
