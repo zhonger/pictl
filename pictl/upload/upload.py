@@ -37,6 +37,8 @@ def upload_s3(settings: dict, filename: str, group: str):
         resource["config"] = BConfig(
             s3={"addressing_style": "virtual", "signature_version": "s3v4"}
         )
+    if settings[group]["type"] == "DO":
+        resource["config"] = BConfig(s3={"addressing_style": "virtual"})
     s3 = boto3.resource("s3", **resource)
     with open(filename, "rb") as data:
         content_type = get_content_type(filename)

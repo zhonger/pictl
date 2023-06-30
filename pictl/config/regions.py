@@ -154,4 +154,5 @@ regions = {
         "tr-west-1",
     ],
     "Vultr": ["sgp1", "ams1", "blr1", "del1", "ewr1", "sjc1"],
+    "DO": ["ams3", "fra1", "nyc3", "sfo2", "sgp1"],
 }

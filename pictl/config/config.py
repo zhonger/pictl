@@ -145,6 +145,8 @@ class Config:
             endpoint = f"https://obs.{region}.myhuaweicloud.com"
         if type_ == "Vultr":
             endpoint = f"https://{region}.vultrobjects.com"
+        if type_ == "DO":
+            endpoint = f"https://{region}.digitaloceanspaces.com"
         return endpoint
 
     def delete(self, group: str = None):
