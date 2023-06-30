@@ -3,5 +3,6 @@
     "editor.rulers": [
         88
     ],
-    "editor.fontFamily": "IntelOne Mono,Menlo, Monaco, 'Courier New', monospace"
+    "editor.fontFamily": "Hack, Menlo, Fira Code, IntelOne Mono, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
 }
