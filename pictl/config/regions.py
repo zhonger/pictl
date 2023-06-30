@@ -155,4 +155,5 @@ regions = {
     ],
     "Vultr": ["sgp1", "ams1", "blr1", "del1", "ewr1", "sjc1"],
     "DO": ["ams3", "fra1", "nyc3", "sfo2", "sgp1"],
+    "Linode": ["us-southeast-1", "eu-central-1", "us-east-1", "ap-south-1"],
 }

@@ -147,6 +147,8 @@ class Config:
             endpoint = f"https://{region}.vultrobjects.com"
         if type_ == "DO":
             endpoint = f"https://{region}.digitaloceanspaces.com"
+        if type_ == "Linode":
+            endpoint = f"https://{region}.linodeobjects.com"
         return endpoint
 
     def delete(self, group: str = None):
