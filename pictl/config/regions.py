@@ -130,4 +130,11 @@ regions = {
         "me-east-1",
         "rg-china-mainland",
     ],
+    "B2": [
+        "us-west-001",
+        "us-west-002",
+        "eu-central-003",
+        "us-west-004",
+        "us-east-005",
+    ],
 }

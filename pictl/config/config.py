@@ -75,7 +75,7 @@ class Config:
             inquirer.List(
                 "type",
                 message="Type",
-                choices=["S3", "R2", "COS(Tencent)", "Oracle", "OSS(Aliyun)"],
+                choices=["S3", "R2", "COS(Tencent)", "Oracle", "OSS(Aliyun)", "B2"],
             ),
         ]
         type_ = inquirer.prompt(types)["type"]
@@ -139,6 +139,8 @@ class Config:
             )
         if type_ == "OSS(Aliyun)":
             endpoint = f"https://oss-{region}.aliyuncs.com"
+        if type_ == "B2":
+            endpoint = f"https://s3.{region}.backblazeb2.com"
         return endpoint
 
     def delete(self, group: str = None):
