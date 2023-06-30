@@ -199,4 +199,12 @@ regions = {
         "IN",
         "US",
     ],
+    "Kodo(Qiniu)": [
+        "cn-east-1",
+        "cn-east-2",
+        "cn-north-1",
+        "cn-south-1",
+        "us-north-1",
+        "ap-southeast-1",
+    ],
 }

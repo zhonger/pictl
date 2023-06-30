@@ -151,6 +151,8 @@ class Config:
             endpoint = f"https://{region}.linodeobjects.com"
         if type_ == "GCP":
             endpoint = "https://storage.googleapis.com"
+        if type_ == "Kodo(Qiniu)":
+            endpoint = f"https://s3-{region}.qiniucs.com"
         return endpoint
 
     def delete(self, group: str = None):
