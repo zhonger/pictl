@@ -130,7 +130,7 @@ class Config:
         if type_ == "Oracle":
             while namespace == "":
                 namespace = input("Namespace: ")
-        if type_ == "minio" or type_ == "IDrive":
+        if type_ in ["minio", "IDrive"]:
             while endpoint == "":
                 endpoint = input("Endpoint: ")
         return {
@@ -156,6 +156,9 @@ class Config:
             "COS(IBM)": f"https://s3.{region}.cloud-object-storage.appdomain.cloud",
             "Contabo": f"https://{region}.contabostorage.com",
             "IDrive": endpoint,
+            "OVH(Standard)": f"https://s3.{region}.io.cloud.ovh.net",
+            "OVH(High)": f"https://s3.{region}.perf.cloud.ovh.net",
+            "OVH(Swift)": f"https://s3.{region}.cloud.ovh.net",
         }.get(type_)
 
     def delete(self, group: str = None):

@@ -258,4 +258,7 @@ regions = {
     "IDrive": [
         "us-east-1",
     ],
+    "OVH(Standard)": ["gra", "sbg", "de", "bhs", "rbx", "waw", "uk"],
+    "OVH(High)": ["gra", "sbg", "bhs"],
+    "OVH(Swift)": ["sbg", "uk", "de", "waw", "bhs", "gra"],
 }
