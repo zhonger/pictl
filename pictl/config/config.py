@@ -138,6 +138,7 @@ class Config:
             "US3": f"https://s3-{region}.ufileos.com",
             "QingStor": f"https://s3.{region}.qingstor.com",
             "OSS(JD)": f"https://s3.{region}.jdcloud-oss.com",
+            "BOS(Baidu)": f"http://s3.{region}.bcebos.com",
         }.get(type_)
 
     def get_endpoint_R2(self):
