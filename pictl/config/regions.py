@@ -242,4 +242,5 @@ regions = {
         "jr-beijing",
         "jr-shanghai",
     ],
+    "Scaleway": ["nl-ams", "fr-par", "pl-waw"],
 }
