@@ -141,6 +141,7 @@ class Config:
             "BOS(Baidu)": f"http://s3.{region}.bcebos.com",
             "KS3(Kingsoft)": f"https://ks3-{region}.ksyuncs.com",
             "Scaleway": f"https://s3.{region}.scw.cloud",
+            "COS(IBM)": f"https://s3.{region}.cloud-object-storage.appdomain.cloud"
         }.get(type_)
 
     def get_endpoint_R2(self):

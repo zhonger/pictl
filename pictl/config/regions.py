@@ -243,4 +243,15 @@ regions = {
         "jr-shanghai",
     ],
     "Scaleway": ["nl-ams", "fr-par", "pl-waw"],
+    "COS(IBM)": [
+        "us-south",
+        "us-east",
+        "eu-gb",
+        "eu-de",
+        "au-syd",
+        "jp-tok",
+        "jp-osa",
+        "ca-tor",
+        "br-sao",
+    ],
 }
