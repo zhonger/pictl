@@ -121,11 +121,23 @@ class Config:
         return add_config
 
     def get_endpoint(self, type_: str, region: str):
+        account_id = ""
+        namespace = ""
+        endpoint = ""
+        if type_ == "R2":
+            while account_id == "":
+                account_id = input("Account ID: ")
+        if type_ == "Oracle":
+            while namespace == "":
+                namespace = input("Namespace: ")
+        if type_ == "minio":
+            while endpoint == "":
+                endpoint = input("Endpoint: ")
         return {
             "S3": f"https://s3.{region}.amazonaws.com",
-            "R2": self.get_endpoint_R2(),
+            "R2": f"https://{account_id}.r2.cloudflarestorage.com",
             "COS(Tencent)": f"https://cos.{region}.myqcloud.com",
-            "Oracle": self.get_endpoint_Oracle(region),
+            "Oracle": f"https://{namespace}.compat.objectstorage.{region}.oraclecloud.com",
             "OSS(Aliyun)": f"https://oss-{region}.aliyuncs.com",
             "B2": f"https://s3.{region}.backblazeb2.com",
             "OBS(Huawei)": f"https://obs.{region}.myhuaweicloud.com",
@@ -134,7 +146,7 @@ class Config:
             "Linode": f"https://{region}.linodeobjects.com",
             "GCP": "https://storage.googleapis.com",
             "Kodo(Qiniu)": f"https://s3-{region}.qiniucs.com",
-            "minio": self.get_endpoint_minio(),
+            "minio": endpoint,
             "US3": f"https://s3-{region}.ufileos.com",
             "QingStor": f"https://s3.{region}.qingstor.com",
             "OSS(JD)": f"https://s3.{region}.jdcloud-oss.com",
@@ -143,26 +155,6 @@ class Config:
             "Scaleway": f"https://s3.{region}.scw.cloud",
             "COS(IBM)": f"https://s3.{region}.cloud-object-storage.appdomain.cloud"
         }.get(type_)
-
-    def get_endpoint_R2(self):
-        account_id = ""
-        while account_id == "":
-            account_id = input("Account ID: ")
-        endpoint = f"https://{account_id}.r2.cloudflarestorage.com"
-        return endpoint
-
-    def get_endpoint_Oracle(self, region: str):
-        namespace = ""
-        while namespace == "":
-            namespace = input("Namespace: ")
-        endpoint = f"https://{namespace}.compat.objectstorage.{region}.oraclecloud.com"
-        return endpoint
-
-    def get_endpoint_minio(self):
-        endpoint = ""
-        while endpoint == "":
-            endpoint = input("Endpoint: ")
-        return endpoint
 
     def delete(self, group: str = None):
         config = self.read()
