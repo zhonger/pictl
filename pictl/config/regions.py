@@ -255,4 +255,7 @@ regions = {
         "br-sao",
     ],
     "Contabo": ["eu2", "sin1", "usc1"],
+    "IDrive": [
+        "us-east-1",
+    ],
 }
