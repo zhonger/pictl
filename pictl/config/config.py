@@ -136,6 +136,7 @@ class Config:
             "Kodo(Qiniu)": f"https://s3-{region}.qiniucs.com",
             "minio": self.get_endpoint_minio(),
             "US3": f"https://s3-{region}.ufileos.com",
+            "QingStor": f"https://s3.{region}.qingstor.com",
         }.get(type_)
 
     def get_endpoint_R2(self):

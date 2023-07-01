@@ -229,4 +229,5 @@ regions = {
         "jpn-tky",
         "th-bkk",
     ],
+    "QingStor": ["pek3a", "sh1a", "pek3b", "gd2", "ap3"],
 }
