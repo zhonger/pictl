@@ -121,42 +121,40 @@ class Config:
         return add_config
 
     def get_endpoint(self, type_: str, region: str):
-        if type_ == "S3":
-            endpoint = f"https://s3.{region}.amazonaws.com"
-        if type_ == "R2":
-            account_id = ""
-            while account_id == "":
-                account_id = input("Account ID: ")
-            endpoint = f"https://{account_id}.r2.cloudflarestorage.com"
-        if type_ == "COS(Tencent)":
-            endpoint = f"https://cos.{region}.myqcloud.com"
-        if type_ == "Oracle":
-            namespace = ""
-            while namespace == "":
-                namespace = input("Namespace: ")
-            endpoint = (
-                f"https://{namespace}.compat.objectstorage.{region}.oraclecloud.com"
-            )
-        if type_ == "OSS(Aliyun)":
-            endpoint = f"https://oss-{region}.aliyuncs.com"
-        if type_ == "B2":
-            endpoint = f"https://s3.{region}.backblazeb2.com"
-        if type_ == "OBS(Huawei)":
-            endpoint = f"https://obs.{region}.myhuaweicloud.com"
-        if type_ == "Vultr":
-            endpoint = f"https://{region}.vultrobjects.com"
-        if type_ == "DO":
-            endpoint = f"https://{region}.digitaloceanspaces.com"
-        if type_ == "Linode":
-            endpoint = f"https://{region}.linodeobjects.com"
-        if type_ == "GCP":
-            endpoint = "https://storage.googleapis.com"
-        if type_ == "Kodo(Qiniu)":
-            endpoint = f"https://s3-{region}.qiniucs.com"
-        if type_ == "minio":
-            endpoint = ""
-            while endpoint == "":
-                endpoint = input("Endpoint: ")
+        return {
+            "S3": f"https://s3.{region}.amazonaws.com",
+            "R2": self.get_endpoint_R2(),
+            "COS(Tencent)": f"https://cos.{region}.myqcloud.com",
+            "Oracle": self.get_endpoint_Oracle(region),
+            "OSS(Aliyun)": f"https://oss-{region}.aliyuncs.com",
+            "B2": f"https://s3.{region}.backblazeb2.com",
+            "OBS(Huawei)": f"https://obs.{region}.myhuaweicloud.com",
+            "Vultr": f"https://{region}.vultrobjects.com",
+            "DO": f"https://{region}.digitaloceanspaces.com",
+            "Linode": f"https://{region}.linodeobjects.com",
+            "GCP": "https://storage.googleapis.com",
+            "Kodo(Qiniu)": f"https://s3-{region}.qiniucs.com",
+            "minio": self.get_endpoint_minio(),
+        }.get(type_)
+
+    def get_endpoint_R2(self):
+        account_id = ""
+        while account_id == "":
+            account_id = input("Account ID: ")
+        endpoint = f"https://{account_id}.r2.cloudflarestorage.com"
+        return endpoint
+
+    def get_endpoint_Oracle(self, region: str):
+        namespace = ""
+        while namespace == "":
+            namespace = input("Namespace: ")
+        endpoint = f"https://{namespace}.compat.objectstorage.{region}.oraclecloud.com"
+        return endpoint
+
+    def get_endpoint_minio(self):
+        endpoint = ""
+        while endpoint == "":
+            endpoint = input("Endpoint: ")
         return endpoint
 
     def delete(self, group: str = None):
