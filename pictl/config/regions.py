@@ -254,4 +254,5 @@ regions = {
         "ca-tor",
         "br-sao",
     ],
+    "Contabo": ["eu2", "sin1", "usc1"],
 }

@@ -153,7 +153,8 @@ class Config:
             "BOS(Baidu)": f"http://s3.{region}.bcebos.com",
             "KS3(Kingsoft)": f"https://ks3-{region}.ksyuncs.com",
             "Scaleway": f"https://s3.{region}.scw.cloud",
-            "COS(IBM)": f"https://s3.{region}.cloud-object-storage.appdomain.cloud"
+            "COS(IBM)": f"https://s3.{region}.cloud-object-storage.appdomain.cloud",
+            "Contabo": f"https://{region}.contabostorage.com",
         }.get(type_)
 
     def delete(self, group: str = None):
