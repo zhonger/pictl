@@ -135,6 +135,7 @@ class Config:
             "GCP": "https://storage.googleapis.com",
             "Kodo(Qiniu)": f"https://s3-{region}.qiniucs.com",
             "minio": self.get_endpoint_minio(),
+            "US3": f"https://s3-{region}.ufileos.com",
         }.get(type_)
 
     def get_endpoint_R2(self):
