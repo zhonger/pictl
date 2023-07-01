@@ -230,4 +230,5 @@ regions = {
         "th-bkk",
     ],
     "QingStor": ["pek3a", "sh1a", "pek3b", "gd2", "ap3"],
+    "OSS(JD)": ["cn-north-1", "cn-east-1", "cn-east-2", "cn-south-1"],
 }

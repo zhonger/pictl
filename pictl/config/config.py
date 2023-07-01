@@ -137,6 +137,7 @@ class Config:
             "minio": self.get_endpoint_minio(),
             "US3": f"https://s3-{region}.ufileos.com",
             "QingStor": f"https://s3.{region}.qingstor.com",
+            "OSS(JD)": f"https://s3.{region}.jdcloud-oss.com",
         }.get(type_)
 
     def get_endpoint_R2(self):
