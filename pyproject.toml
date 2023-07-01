@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pictl"
-version = "0.2.0"
+version = "0.3.0"
 description = "A command line tool for image processing and uploading (ex. S3-type)"
 authors = ["zhonger <zhonger@live.cn>"]
 license = "MIT"
